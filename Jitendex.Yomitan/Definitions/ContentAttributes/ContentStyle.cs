@@ -18,6 +18,7 @@ If not, see <https://www.gnu.org/licenses/>.
 
 using System.Text.Json.Nodes;
 using Jitendex.Yomitan.Definitions.StyleOptions;
+using static Jitendex.Yomitan.Definitions.StyleOptions.TextDecorationLineOption;
 
 namespace Jitendex.Yomitan.Definitions.ContentAttributes;
 
@@ -29,7 +30,7 @@ public sealed class ContentStyle
     public string? Color { get; set; }
     public string? Background { get; set; }
     public string? BackgroundColor { get; set; }
-    public List<TextDecorationLineOption> TextDecorationLines { get; init; } = [];
+    private HashSet<TextDecorationLineOption> TextDecorationLines { get; init; } = [];
     public TextDecorationStyleOption? TextDecorationStyle { get; set; }
     public string? TextDecorationColor { get; set; }
     public string? BorderColor { get; set; }
@@ -55,6 +56,19 @@ public sealed class ContentStyle
     public string? WhiteSpace { get; set; }
     public string? Cursor { get; set; }
     public string? ListStyleType { get; set; }
+
+    public bool AddTextDecorationLine(TextDecorationLineOption option)
+    {
+        if (option is not None && TextDecorationLines.Contains(None))
+        {
+            throw new InvalidOperationException($"Cannot add option `{option}` after `{None}` option has been added");
+        }
+        if (option is None && TextDecorationLines.Count > 0 && !TextDecorationLines.Contains(option))
+        {
+            throw new InvalidOperationException($"Cannot add option `{None}` after other options have been added");
+        }
+        return TextDecorationLines.Add(option);
+    }
 
     internal JsonObject ToJsonObject()
     {
@@ -87,6 +101,17 @@ public sealed class ContentStyle
         if (TextDecorationStyle.HasValue)
         {
             obj["textDecorationStyle"] = TextDecorationStyle.Value.ToText();
+        }
+        if (TextDecorationLines.Count == 1)
+        {
+            obj["textDecorationLine"] = TextDecorationLines.Single().ToText();
+        }
+        else if (TextDecorationLines.Count > 1)
+        {
+            var nodes = TextDecorationLines
+                .Select(static line => (JsonNode)line.ToText())
+                .ToArray();
+            obj["textDecorationLine"] = new JsonArray(nodes);
         }
         if (TextDecorationColor is not null)
         {
