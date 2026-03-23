@@ -17,13 +17,16 @@ If not, see <https://www.gnu.org/licenses/>.
 */
 
 using System.Text.Json.Nodes;
+using Jitendex.Yomitan.Definitions.ContentAttributes;
 using Jitendex.Yomitan.Definitions.ImageOptions;
+using Jitendex.Yomitan.Definitions.StyleOptions;
 
-namespace Jitendex.Yomitan.Definitions;
+namespace Jitendex.Yomitan.Definitions.Contents;
 
-public sealed class DetailedImageDefinition : DetailedDefinition
+public sealed class ImageContent : ObjectContent
 {
-    protected override string Type => "image";
+    protected override string Tag => "img";
+    public ContentData? Data { get; set; }
 
     /// <summary>
     /// Path to the image file in the archive.
@@ -86,13 +89,37 @@ public sealed class DetailedImageDefinition : DetailedDefinition
     /// </summary>
     public bool? Collapsible { get; set; }
 
+    /// <summary>
+    /// The vertical alignment of the image.
+    /// </summary>
+    public VerticalAlignOption? VerticalAlignOption { get; set; }
+
+    /// <summary>
+    /// Shorthand for border width, style, and color.
+    /// </summary>
+    public string? Border { get; set; }
+
+    /// <summary>
+    /// Roundness of the corners of the image's outer border edge.
+    /// </summary>
+    public string? BorderRadius { get; set; }
+
+    /// <summary>
+    /// The units for the width and height.
+    /// </summary>
+    public SizeUnitOption? SizeUnitOption { get; set; }
+
     internal override JsonNode ToJsonNode()
     {
         var obj = new JsonObject
         {
-            ["type"] = Type,
+            ["tag"] = Tag,
             ["path"] = Path,
         };
+        if (Data is not null)
+        {
+            obj["data"] = Data.ToJsonObject();
+        }
         if (Width.HasValue)
         {
             obj["width"] = Width.Value;
@@ -136,6 +163,22 @@ public sealed class DetailedImageDefinition : DetailedDefinition
         if (Collapsible.HasValue)
         {
             obj["collapsible"] = Collapsible.Value;
+        }
+        if (VerticalAlignOption.HasValue)
+        {
+            obj["verticalAlign"] = VerticalAlignOption.Value.ToText();
+        }
+        if (Border is not null)
+        {
+            obj["border"] = Border;
+        }
+        if (BorderRadius is not null)
+        {
+            obj["borderRadius"] = BorderRadius;
+        }
+        if (SizeUnitOption.HasValue)
+        {
+            obj["sizeUnits"] = SizeUnitOption.Value.ToText();
         }
         return obj;
     }
