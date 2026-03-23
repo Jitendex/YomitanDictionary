@@ -20,7 +20,10 @@ namespace Jitendex.Yomitan.Definitions.ContentAttributes;
 
 public sealed class ContentData
 {
-    public Dictionary<string, string> Attributes { get; init; } = [];
+    private Dictionary<string, string> Attributes { get; init; } = [];
+
+    public bool AddAttribute(string key, string value)
+        => Attributes.TryAdd(key, value);
 
     internal JsonObject ToJsonObject()
     {

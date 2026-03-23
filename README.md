@@ -1,4 +1,4 @@
-# Jitendex.Yomitan
+# YomitanDictionary
 
 This .NET library provides a type-safe, relatively thin and unopinionated wrapper for the
 [Yomitan dictionary format](https://github.com/yomidevs/yomitan/tree/master/ext/data/schemas).
