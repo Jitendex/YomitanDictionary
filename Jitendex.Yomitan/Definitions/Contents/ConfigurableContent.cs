@@ -24,7 +24,7 @@ public abstract class ConfigurableContent : ObjectContent
 {
     public StructuredContent? Content { get; set; }
     public ContentData? Data { get; set; }
-    public object? Style { get; set; }
+    public ContentStyle? Style { get; set; }
 
     /// <summary>
     /// Hover text for the element.
@@ -65,7 +65,7 @@ public abstract class ConfigurableContent : ObjectContent
         }
         if (Style is not null)
         {
-            obj["style"] = null;
+            obj["style"] = Style.ToJsonObject();
         }
         if (Language is not null)
         {

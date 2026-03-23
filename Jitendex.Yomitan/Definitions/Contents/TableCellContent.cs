@@ -24,6 +24,7 @@ public abstract class TableCellContent : ObjectContent
 {
     public StructuredContent? Content { get; set; }
     public ContentData? Data { get; set; }
+    public ContentStyle? Style { get; set; }
 
     public int? ColSpan
     {
@@ -51,8 +52,6 @@ public abstract class TableCellContent : ObjectContent
         }
     }
 
-    public object? Style { get; set; }
-
     /// <summary>
     /// Defines the language of an element in the format defined by RFC 5646.
     /// </summary>
@@ -72,6 +71,10 @@ public abstract class TableCellContent : ObjectContent
         {
             obj["data"] = Data.ToJsonObject();
         }
+        if (Style is not null)
+        {
+            obj["style"] = Style.ToJsonObject();
+        }
         if (ColSpan.HasValue)
         {
             obj["colSpan"] = ColSpan.Value;
@@ -79,10 +82,6 @@ public abstract class TableCellContent : ObjectContent
         if (RowSpan.HasValue)
         {
             obj["rowSpan"] = RowSpan.Value;
-        }
-        if (Style is not null)
-        {
-            obj["style"] = null;
         }
         if (Language is not null)
         {
