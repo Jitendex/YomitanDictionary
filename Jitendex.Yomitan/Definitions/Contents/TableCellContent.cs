@@ -25,8 +25,33 @@ public abstract class TableCellContent : ObjectContent
 {
     public StructuredContent? Content { get; set; }
     public ContentData? Data { get; set; }
-    public int? ColSpan { get; set; }
-    public int? RowSpan { get; set; }
+
+    public int? ColSpan
+    {
+        get;
+        set
+        {
+            if (value.HasValue && value.Value < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(ColSpan)} must be greater than 0.");
+            }
+            field = value;
+        }
+    }
+
+    public int? RowSpan
+    {
+        get;
+        set
+        {
+            if (value.HasValue && value.Value < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(RowSpan)} must be greater than 0.");
+            }
+            field = value;
+        }
+    }
+
     public object? Style { get; set; }
 
     /// <summary>
@@ -48,11 +73,11 @@ public abstract class TableCellContent : ObjectContent
         {
             obj["data"] = Data.ToJsonObject();
         }
-        if (ColSpan.HasValue && ColSpan.Value > 0)
+        if (ColSpan.HasValue)
         {
             obj["colSpan"] = ColSpan.Value;
         }
-        if (RowSpan.HasValue && RowSpan.Value > 0)
+        if (RowSpan.HasValue)
         {
             obj["rowSpan"] = RowSpan.Value;
         }

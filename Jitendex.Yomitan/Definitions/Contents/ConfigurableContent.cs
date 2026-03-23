@@ -28,7 +28,7 @@ public abstract class ConfigurableContent : ObjectContent
     public object? Style { get; set; }
 
     /// <summary>
-    /// Hover text for the eleme
+    /// Hover text for the element.
     /// </summary>
     public string? Title { get; set; }
 
