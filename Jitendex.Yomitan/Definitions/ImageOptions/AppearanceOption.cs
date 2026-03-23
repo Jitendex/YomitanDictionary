@@ -18,18 +18,18 @@ If not, see <https://www.gnu.org/licenses/>.
 
 namespace Jitendex.Yomitan.Definitions.ImageOptions;
 
-public enum ImageAppearanceOption : byte
+public enum AppearanceOption : byte
 {
     Auto,
     Monochrome,
 }
 
-internal static class ImageAppearanceOptionExtensions
+internal static class AppearanceOptionExtensions
 {
-    public static string ToText(this ImageAppearanceOption option) => option switch
+    public static string ToText(this AppearanceOption option) => option switch
     {
-        ImageAppearanceOption.Auto => "auto",
-        ImageAppearanceOption.Monochrome => "monochrome",
+        AppearanceOption.Auto => "auto",
+        AppearanceOption.Monochrome => "monochrome",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

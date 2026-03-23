@@ -18,20 +18,20 @@ If not, see <https://www.gnu.org/licenses/>.
 
 namespace Jitendex.Yomitan.Definitions.ImageOptions;
 
-public enum ImageRenderingOption : byte
+public enum RenderingOption : byte
 {
     Auto,
     Pixelated,
     CrispEdges,
 }
 
-internal static class ImageRenderingOptionExtensions
+internal static class RenderingOptionExtensions
 {
-    public static string ToText(this ImageRenderingOption option) => option switch
+    public static string ToText(this RenderingOption option) => option switch
     {
-        ImageRenderingOption.Auto => "auto",
-        ImageRenderingOption.Pixelated => "pixelated",
-        ImageRenderingOption.CrispEdges => "crisp-edges",
+        RenderingOption.Auto => "auto",
+        RenderingOption.Pixelated => "pixelated",
+        RenderingOption.CrispEdges => "crisp-edges",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

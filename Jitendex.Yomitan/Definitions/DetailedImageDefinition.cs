@@ -63,13 +63,13 @@ public sealed class DetailedImageDefinition : DetailedDefinition
     /// <summary>
     /// Controls how the image is rendered. The value of this field supersedes the pixelated field.
     /// </summary>
-    public ImageRenderingOption? RenderingOption { get; set; }
+    public RenderingOption? RenderingOption { get; set; }
 
     /// <summary>
     /// Controls the appearance of the image. The "monochrome" value will
     /// mask the opaque parts of the image using the current text color.
     /// </summary>
-    public ImageAppearanceOption? AppearanceOption { get; set; }
+    public AppearanceOption? AppearanceOption { get; set; }
 
     /// <summary>
     /// Whether or not a background color is displayed behind the image.
