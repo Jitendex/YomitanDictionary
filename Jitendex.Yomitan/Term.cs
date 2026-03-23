@@ -66,15 +66,13 @@ public sealed class Term
     private HashSet<string> TermTags { get; init; } = [];
 
     private const char Separator = ' ';
+    private const char ReplacementSeparator = '�';
 
     public bool AddDefinitionTag(string tag)
-    {
-        if (tag.Contains(Separator))
-        {
-            throw new InvalidOperationException($"Definition tags must not contain the character `{Separator}`");
-        }
-        return DefinitionTags.Add(tag);
-    }
+        => DefinitionTags.Add(tag.Replace(Separator, ReplacementSeparator));
+
+    public bool AddTermTag(string tag)
+        => TermTags.Add(tag.Replace(Separator, ReplacementSeparator));
 
     public bool AddDeinflectionRule(string rule)
     {
@@ -83,15 +81,6 @@ public sealed class Term
             throw new InvalidOperationException($"Deinflection rules must not contain the character `{Separator}`");
         }
         return Rules.Add(rule);
-    }
-
-    public bool AddTermTag(string tag)
-    {
-        if (tag.Contains(Separator))
-        {
-            throw new InvalidOperationException($"Term tags must not contain the character `{Separator}`");
-        }
-        return TermTags.Add(tag);
     }
 
     internal JsonArray ToJsonArray() =>
