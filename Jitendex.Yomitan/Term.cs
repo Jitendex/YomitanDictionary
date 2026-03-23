@@ -35,13 +35,13 @@ public sealed class Term
     /// <summary>
     /// String of space-separated tags for the definition. An empty string is treated as no tags.
     /// </summary>
-    public required List<string> DefinitionTags { get; set; }
+    private HashSet<string> DefinitionTags { get; init; } = [];
 
     /// <summary>
     /// String of space-separated rule identifiers for the definition which is used to validate deinflection.
     /// An empty string should be used for words which aren't inflected.
     /// </summary>
-    public required List<string> Rules { get; set; }
+    private HashSet<string> Rules { get; init; } = [];
 
     /// <summary>
     /// Score used to determine popularity. Negative values are more rare and positive values are more frequent.
@@ -63,9 +63,36 @@ public sealed class Term
     /// <summary>
     /// String of space-separated tags for the term. An empty string is treated as no tags.
     /// </summary>
-    public List<string> TermTags { get; init; } = [];
+    private HashSet<string> TermTags { get; init; } = [];
 
     private const char Separator = ' ';
+
+    public bool AddDefinitionTag(string tag)
+    {
+        if (tag.Contains(Separator))
+        {
+            throw new InvalidOperationException($"Definition tags must not contain the character `{Separator}`");
+        }
+        return DefinitionTags.Add(tag);
+    }
+
+    public bool AddDeinflectionRule(string rule)
+    {
+        if (rule.Contains(Separator))
+        {
+            throw new InvalidOperationException($"Deinflection rules must not contain the character `{Separator}`");
+        }
+        return Rules.Add(rule);
+    }
+
+    public bool AddTermTag(string tag)
+    {
+        if (tag.Contains(Separator))
+        {
+            throw new InvalidOperationException($"Term tags must not contain the character `{Separator}`");
+        }
+        return TermTags.Add(tag);
+    }
 
     internal JsonArray ToJsonArray() =>
     [
