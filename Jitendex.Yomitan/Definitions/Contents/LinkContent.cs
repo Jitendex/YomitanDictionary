@@ -16,20 +16,33 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
+using System.Text.RegularExpressions;
+
 namespace Jitendex.Yomitan.Definitions.Contents;
 
-public sealed class LinkContent : ObjectContent
+public partial class LinkContent : ObjectContent
 {
     protected override string Tag => "a";
     public StructuredContent? Content { get; set; }
 
+    [GeneratedRegex(@"^(?:https?:|\?)[\w\W]*", RegexOptions.None)]
+    private static partial Regex LinkUrlRegex { get; }
+
     /// <summary>
     /// The URL for the link. URLs starting with a ? are treated as internal links to other dictionary content.
     /// </summary>
-    /// <remarks>
-    /// "^(?:https?:|\\?)[\\w\\W]*"
-    /// </remarks>
-    public required string LinkUrl { get; set; }
+    public required string LinkUrl
+    {
+        get;
+        set
+        {
+            if (LinkUrlRegex.IsMatch(value) is false)
+            {
+                throw new ArgumentException($"{nameof(LinkUrl)} value `{value}` is invalid.");
+            }
+            field = value;
+        }
+    }
 
     /// <summary>
     /// Defines the language of an element in the format defined by RFC 5646.
