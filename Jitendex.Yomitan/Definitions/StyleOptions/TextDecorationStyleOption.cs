@@ -29,7 +29,7 @@ public enum TextDecorationStyleOption : byte
 
 internal static class TextDecorationStyleOptionExtensions
 {
-    public static string ToText(this TextDecorationStyleOption option) => option switch
+    public static JsonNode ToJsonNode(this TextDecorationStyleOption option) => option switch
     {
         TextDecorationStyleOption.Solid => "solid",
         TextDecorationStyleOption.Double => "double",

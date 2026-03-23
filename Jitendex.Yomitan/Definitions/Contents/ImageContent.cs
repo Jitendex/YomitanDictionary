@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Text.Json.Nodes;
 using Jitendex.Yomitan.Definitions.ContentAttributes;
 using Jitendex.Yomitan.Definitions.ImageOptions;
 using Jitendex.Yomitan.Definitions.StyleOptions;
@@ -146,11 +145,11 @@ public sealed class ImageContent : ObjectContent
         }
         if (RenderingOption.HasValue)
         {
-            obj["imageRendering"] = RenderingOption.Value.ToText();
+            obj["imageRendering"] = RenderingOption.Value.ToJsonNode();
         }
         if (AppearanceOption.HasValue)
         {
-            obj["appearance"] = AppearanceOption.Value.ToText();
+            obj["appearance"] = AppearanceOption.Value.ToJsonNode();
         }
         if (Background.HasValue)
         {
@@ -166,7 +165,7 @@ public sealed class ImageContent : ObjectContent
         }
         if (VerticalAlignOption.HasValue)
         {
-            obj["verticalAlign"] = VerticalAlignOption.Value.ToText();
+            obj["verticalAlign"] = VerticalAlignOption.Value.ToJsonNode();
         }
         if (Border is not null)
         {
@@ -178,7 +177,7 @@ public sealed class ImageContent : ObjectContent
         }
         if (SizeUnitOption.HasValue)
         {
-            obj["sizeUnits"] = SizeUnitOption.Value.ToText();
+            obj["sizeUnits"] = SizeUnitOption.Value.ToJsonNode();
         }
         return obj;
     }

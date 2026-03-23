@@ -27,7 +27,7 @@ public enum WordBreakOption : byte
 
 internal static class WordBreakOptionExtensions
 {
-    public static string ToText(this WordBreakOption option) => option switch
+    public static JsonNode ToJsonNode(this WordBreakOption option) => option switch
     {
         WordBreakOption.Normal => "normal",
         WordBreakOption.BreakAll => "break-all",

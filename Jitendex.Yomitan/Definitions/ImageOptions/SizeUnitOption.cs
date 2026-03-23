@@ -26,7 +26,7 @@ public enum SizeUnitOption : byte
 
 internal static class SizeUnitOptionExtensions
 {
-    public static string ToText(this SizeUnitOption option) => option switch
+    public static JsonNode ToJsonNode(this SizeUnitOption option) => option switch
     {
         SizeUnitOption.Pixels => "px",
         SizeUnitOption.Em => "em",

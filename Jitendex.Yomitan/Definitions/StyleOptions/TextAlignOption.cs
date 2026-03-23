@@ -32,7 +32,7 @@ public enum TextAlignOption : byte
 
 internal static class TextAlignOptionExtensions
 {
-    public static string ToText(this TextAlignOption option) => option switch
+    public static JsonNode ToJsonNode(this TextAlignOption option) => option switch
     {
         TextAlignOption.Start => "start",
         TextAlignOption.End => "end",

@@ -32,7 +32,7 @@ public enum VerticalAlignOption : byte
 
 internal static class VerticalAlignOptionExtensions
 {
-    public static string ToText(this VerticalAlignOption option) => option switch
+    public static JsonNode ToJsonNode(this VerticalAlignOption option) => option switch
     {
         VerticalAlignOption.Baseline => "baseline",
         VerticalAlignOption.Sub => "sub",

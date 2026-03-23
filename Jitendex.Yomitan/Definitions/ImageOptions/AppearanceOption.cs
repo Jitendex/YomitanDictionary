@@ -26,7 +26,7 @@ public enum AppearanceOption : byte
 
 internal static class AppearanceOptionExtensions
 {
-    public static string ToText(this AppearanceOption option) => option switch
+    public static JsonNode ToJsonNode(this AppearanceOption option) => option switch
     {
         AppearanceOption.Auto => "auto",
         AppearanceOption.Monochrome => "monochrome",

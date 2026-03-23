@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Text.Json.Nodes;
 using Jitendex.Yomitan.Definitions.StyleOptions;
 using static Jitendex.Yomitan.Definitions.StyleOptions.TextDecorationLineOption;
 
@@ -76,11 +75,11 @@ public sealed class ContentStyle
 
         if (FontStyle.HasValue)
         {
-            obj["fontStyle"] = FontStyle.Value.ToText();
+            obj["fontStyle"] = FontStyle.Value.ToJsonNode();
         }
         if (FontWeight.HasValue)
         {
-            obj["fontWeight"] = FontWeight.Value.ToText();
+            obj["fontWeight"] = FontWeight.Value.ToJsonNode();
         }
         if (FontSize is not null)
         {
@@ -100,16 +99,16 @@ public sealed class ContentStyle
         }
         if (TextDecorationStyle.HasValue)
         {
-            obj["textDecorationStyle"] = TextDecorationStyle.Value.ToText();
+            obj["textDecorationStyle"] = TextDecorationStyle.Value.ToJsonNode();
         }
         if (TextDecorationLines.Count == 1)
         {
-            obj["textDecorationLine"] = TextDecorationLines.Single().ToText();
+            obj["textDecorationLine"] = TextDecorationLines.Single().ToJsonNode();
         }
         else if (TextDecorationLines.Count > 1)
         {
             var nodes = TextDecorationLines
-                .Select(static line => (JsonNode)line.ToText())
+                .Select(static line => line.ToJsonNode())
                 .ToArray();
             obj["textDecorationLine"] = new JsonArray(nodes);
         }
@@ -139,11 +138,11 @@ public sealed class ContentStyle
         }
         if (VerticalAlign.HasValue)
         {
-            obj["verticalAlign"] = VerticalAlign.Value.ToText();
+            obj["verticalAlign"] = VerticalAlign.Value.ToJsonNode();
         }
         if (TextAlign.HasValue)
         {
-            obj["textAlign"] = TextAlign.Value.ToText();
+            obj["textAlign"] = TextAlign.Value.ToJsonNode();
         }
         if (TextEmphasis is not null)
         {
@@ -195,7 +194,7 @@ public sealed class ContentStyle
         }
         if (WordBreak.HasValue)
         {
-            obj["wordBreak"] = WordBreak.Value.ToText();
+            obj["wordBreak"] = WordBreak.Value.ToJsonNode();
         }
         if (WhiteSpace is not null)
         {

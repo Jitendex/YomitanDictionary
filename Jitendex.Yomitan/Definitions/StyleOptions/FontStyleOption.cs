@@ -26,7 +26,7 @@ public enum FontStyleOption : byte
 
 internal static class FontStyleOptionExtensions
 {
-    public static string ToText(this FontStyleOption option) => option switch
+    public static JsonNode ToJsonNode(this FontStyleOption option) => option switch
     {
         FontStyleOption.Normal => "normal",
         FontStyleOption.Italic => "italic",

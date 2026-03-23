@@ -28,7 +28,7 @@ public enum TextDecorationLineOption : byte
 
 internal static class TextDecorationLineOptionExtensions
 {
-    public static string ToText(this TextDecorationLineOption option) => option switch
+    public static JsonNode ToJsonNode(this TextDecorationLineOption option) => option switch
     {
         TextDecorationLineOption.None => "none",
         TextDecorationLineOption.Underline => "underline",

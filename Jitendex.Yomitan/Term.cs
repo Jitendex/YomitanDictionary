@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Text.Json.Nodes;
 using Jitendex.Yomitan.Definitions;
 
 namespace Jitendex.Yomitan;

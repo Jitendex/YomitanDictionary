@@ -26,7 +26,7 @@ public enum FontWeightOption : byte
 
 internal static class FontWeightOptionExtensions
 {
-    public static string ToText(this FontWeightOption option) => option switch
+    public static JsonNode ToJsonNode(this FontWeightOption option) => option switch
     {
         FontWeightOption.Normal => "normal",
         FontWeightOption.Bold => "bold",

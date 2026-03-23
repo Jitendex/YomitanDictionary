@@ -16,8 +16,6 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Text.Json.Nodes;
-
 namespace Jitendex.Yomitan.Definitions;
 
 public sealed class DeinflectionDefinition : Definition

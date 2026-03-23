@@ -27,7 +27,7 @@ public enum RenderingOption : byte
 
 internal static class RenderingOptionExtensions
 {
-    public static string ToText(this RenderingOption option) => option switch
+    public static JsonNode ToJsonNode(this RenderingOption option) => option switch
     {
         RenderingOption.Auto => "auto",
         RenderingOption.Pixelated => "pixelated",
