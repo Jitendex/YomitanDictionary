@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Options;
+namespace Jitendex.Yomitan.Models.Options;
 
 public enum TagCategory
 {

@@ -16,11 +16,11 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Jitendex.Yomitan.Definitions.ContentAttributes;
-using Jitendex.Yomitan.Options.ImageOptions;
-using Jitendex.Yomitan.Options.StyleOptions;
+using Jitendex.Yomitan.Models.ContentAttributes;
+using Jitendex.Yomitan.Models.Options.ImageOptions;
+using Jitendex.Yomitan.Models.Options.StyleOptions;
 
-namespace Jitendex.Yomitan.Definitions.Contents;
+namespace Jitendex.Yomitan.Models.Contents;
 
 public sealed class ImageContent : ObjectContent
 {

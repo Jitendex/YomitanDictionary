@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Options.StyleOptions;
+namespace Jitendex.Yomitan.Models.Options.StyleOptions;
 
 public enum WordBreakOption : byte
 {

@@ -16,9 +16,9 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Jitendex.Yomitan.Definitions;
+using Jitendex.Yomitan.Models.Definitions;
 
-namespace Jitendex.Yomitan;
+namespace Jitendex.Yomitan.Models;
 
 public sealed class Term
 {

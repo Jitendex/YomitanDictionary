@@ -16,9 +16,9 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Jitendex.Yomitan.Definitions.ContentAttributes;
+using Jitendex.Yomitan.Models.ContentAttributes;
 
-namespace Jitendex.Yomitan.Definitions.Contents;
+namespace Jitendex.Yomitan.Models.Contents;
 
 public abstract class TableCellContent : ObjectContent
 {

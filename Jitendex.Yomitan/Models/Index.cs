@@ -17,9 +17,9 @@ If not, see <https://www.gnu.org/licenses/>.
 */
 
 using System.Text.RegularExpressions;
-using Jitendex.Yomitan.Options;
+using Jitendex.Yomitan.Models.Options;
 
-namespace Jitendex.Yomitan;
+namespace Jitendex.Yomitan.Models;
 
 /// <summary>
 /// Index file containing information about the data contained in the dictionary.

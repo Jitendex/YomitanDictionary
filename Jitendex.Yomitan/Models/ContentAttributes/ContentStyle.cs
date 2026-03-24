@@ -16,10 +16,10 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Jitendex.Yomitan.Options.StyleOptions;
-using static Jitendex.Yomitan.Options.StyleOptions.TextDecorationLineOption;
+using Jitendex.Yomitan.Models.Options.StyleOptions;
+using static Jitendex.Yomitan.Models.Options.StyleOptions.TextDecorationLineOption;
 
-namespace Jitendex.Yomitan.Definitions.ContentAttributes;
+namespace Jitendex.Yomitan.Models.ContentAttributes;
 
 public sealed class ContentStyle
 {

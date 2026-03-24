@@ -18,7 +18,7 @@ If not, see <https://www.gnu.org/licenses/>.
 
 using System.Text.RegularExpressions;
 
-namespace Jitendex.Yomitan.Definitions.Contents;
+namespace Jitendex.Yomitan.Models.Contents;
 
 public partial class LinkContent : ObjectContent
 {
