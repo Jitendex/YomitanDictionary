@@ -52,11 +52,6 @@ public partial class DictionaryIndex
     public string? Author { get; set; }
 
     /// <summary>
-    /// Whether this dictionary contains links to its latest version.
-    /// </summary>
-    public bool IsUpdatable { get; set; } = false;
-
-    /// <summary>
     /// URL for the index file of the latest revision of the dictionary, used to check for updates.
     /// </summary>
     public string? UpdatesUrl { get; set; }
@@ -138,22 +133,15 @@ public partial class DictionaryIndex
         {
             obj["author"] = Author;
         }
-        if (IsUpdatable)
+        if (UpdatesUrl is not null && DownloadUrl is not null)
         {
-            if (UpdatesUrl is not null && DownloadUrl is not null)
-            {
-                obj["isUpdatable"] = true;
-                obj["indexUrl"] = UpdatesUrl;
-                obj["downloadUrl"] = DownloadUrl;
-            }
-            else
-            {
-                throw new InvalidOperationException($"{nameof(UpdatesUrl)} and {nameof(DownloadUrl)} must not be null when {nameof(IsUpdatable)} is true.");
-            }
+            obj["isUpdatable"] = true;
+            obj["indexUrl"] = UpdatesUrl;
+            obj["downloadUrl"] = DownloadUrl;
         }
         else if (UpdatesUrl is not null || DownloadUrl is not null)
         {
-            throw new InvalidOperationException($"{nameof(UpdatesUrl)} and {nameof(DownloadUrl)} must be null when {nameof(IsUpdatable)} is false.");
+            throw new InvalidOperationException($"{nameof(UpdatesUrl)} and {nameof(DownloadUrl)} must both be simultaneously null or not null.");
         }
         if (SourceUrl is not null)
         {
