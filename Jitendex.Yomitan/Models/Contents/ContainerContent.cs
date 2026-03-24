@@ -23,7 +23,7 @@ namespace Jitendex.Yomitan.Models.Contents;
 public abstract class ContainerContent : ObjectContent
 {
     public StructuredContent? Content { get; set; }
-    public ContentData? Data { get; set; }
+    public DataAttributes? Data { get; set; }
 
     /// <summary>
     /// Defines the language of an element in the format defined by RFC 5646.

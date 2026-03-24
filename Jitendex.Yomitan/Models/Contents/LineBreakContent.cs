@@ -23,7 +23,7 @@ namespace Jitendex.Yomitan.Models.Contents;
 public sealed class LineBreakContent : ObjectContent
 {
     protected override string Tag => "br";
-    public ContentData? Data { get; set; }
+    public DataAttributes? Data { get; set; }
 
     internal override JsonNode ToJsonNode()
     {

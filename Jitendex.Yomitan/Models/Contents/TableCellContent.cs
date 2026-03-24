@@ -23,8 +23,8 @@ namespace Jitendex.Yomitan.Models.Contents;
 public abstract class TableCellContent : ObjectContent
 {
     public StructuredContent? Content { get; set; }
-    public ContentData? Data { get; set; }
-    public ContentStyle? Style { get; set; }
+    public DataAttributes? Data { get; set; }
+    public StyleAttributes? Style { get; set; }
 
     public int? ColSpan
     {

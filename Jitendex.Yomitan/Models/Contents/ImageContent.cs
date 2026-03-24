@@ -25,7 +25,7 @@ namespace Jitendex.Yomitan.Models.Contents;
 public sealed class ImageContent : ObjectContent
 {
     protected override string Tag => "img";
-    public ContentData? Data { get; set; }
+    public DataAttributes? Data { get; set; }
 
     /// <summary>
     /// Path to the image file in the archive.

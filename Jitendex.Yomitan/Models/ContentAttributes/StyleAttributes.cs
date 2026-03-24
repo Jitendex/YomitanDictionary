@@ -21,7 +21,7 @@ using static Jitendex.Yomitan.Models.Options.StyleOptions.TextDecorationLineOpti
 
 namespace Jitendex.Yomitan.Models.ContentAttributes;
 
-public sealed class ContentStyle
+public sealed class StyleAttributes
 {
     public FontStyleOption? FontStyle { get; set; }
     public FontWeightOption? FontWeight { get; set; }

@@ -18,7 +18,7 @@ If not, see <https://www.gnu.org/licenses/>.
 
 namespace Jitendex.Yomitan.Models.ContentAttributes;
 
-public sealed class ContentData
+public sealed class DataAttributes
 {
     private Dictionary<string, string> Attributes { get; init; } = [];
 
