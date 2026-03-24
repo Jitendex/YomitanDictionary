@@ -22,7 +22,7 @@ using Jitendex.Yomitan.Models.Options;
 namespace Jitendex.Yomitan.Models;
 
 /// <summary>
-/// Index file containing information about the data contained in the dictionary.
+/// Dictionary file metadata.
 /// </summary>
 public partial class Index
 {

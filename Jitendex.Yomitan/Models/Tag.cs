@@ -21,7 +21,7 @@ using Jitendex.Yomitan.Models.Options;
 namespace Jitendex.Yomitan.Models;
 
 /// <summary>
-/// Data file containing tag information for terms and kanji.
+/// Tag information for terms and kanji.
 /// </summary>
 public sealed class Tag
 {
