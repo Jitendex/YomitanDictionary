@@ -123,6 +123,7 @@ public sealed class ArchiveBuilder : IDisposable
         {
             throw new InvalidOperationException($"Destination directory already exists at path `{destinationDirFullName}`");
         }
+
         Directory.CreateDirectory(destinationDirFullName);
 
         foreach (var file in mediaDirectory.EnumerateFiles())
@@ -139,6 +140,10 @@ public sealed class ArchiveBuilder : IDisposable
 
     public async Task BuildArchiveAsync(string pathToOutputFile)
     {
+        if (File.Exists(IndexPath) is false)
+        {
+            throw new InvalidOperationException($"Dictionary index file not found at path `{IndexPath}`");
+        }
         if (File.Exists(pathToOutputFile))
         {
             throw new InvalidOperationException($"File already exists at path `{pathToOutputFile}`");
