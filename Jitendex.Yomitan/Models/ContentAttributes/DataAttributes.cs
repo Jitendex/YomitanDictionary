@@ -22,8 +22,12 @@ public sealed class DataAttributes
 {
     private Dictionary<string, string> Attributes { get; init; } = [];
 
-    public bool AddAttribute(string key, string value)
-        => Attributes.TryAdd(key, value);
+    /// <summary>
+    /// Attempts to add the data attribute name and value.
+    /// </summary>
+    /// <returns><c>true</c> if the name/value pair was added successfully; otherwise, <c>false</c>.</returns>
+    public bool AddAttribute(string name, string value)
+        => Attributes.TryAdd(name, value);
 
     internal JsonObject ToJsonObject()
     {
