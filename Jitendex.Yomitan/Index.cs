@@ -17,6 +17,7 @@ If not, see <https://www.gnu.org/licenses/>.
 */
 
 using System.Text.RegularExpressions;
+using Jitendex.Yomitan.Options;
 
 namespace Jitendex.Yomitan;
 

@@ -17,8 +17,8 @@ If not, see <https://www.gnu.org/licenses/>.
 */
 
 using Jitendex.Yomitan.Definitions.ContentAttributes;
-using Jitendex.Yomitan.Definitions.ImageOptions;
-using Jitendex.Yomitan.Definitions.StyleOptions;
+using Jitendex.Yomitan.Options.ImageOptions;
+using Jitendex.Yomitan.Options.StyleOptions;
 
 namespace Jitendex.Yomitan.Definitions.Contents;
 

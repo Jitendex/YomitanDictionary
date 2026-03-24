@@ -16,20 +16,32 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Definitions.StyleOptions;
+namespace Jitendex.Yomitan.Options.StyleOptions;
 
-public enum FontStyleOption : byte
+public enum VerticalAlignOption : byte
 {
-    Normal,
-    Italic,
+    Baseline,
+    Sub,
+    Super,
+    TextTop,
+    TextBottom,
+    Middle,
+    Top,
+    Bottom,
 }
 
-internal static class FontStyleOptionExtensions
+internal static class VerticalAlignOptionExtensions
 {
-    public static JsonNode ToJsonNode(this FontStyleOption option) => option switch
+    public static JsonNode ToJsonNode(this VerticalAlignOption option) => option switch
     {
-        FontStyleOption.Normal => "normal",
-        FontStyleOption.Italic => "italic",
+        VerticalAlignOption.Baseline => "baseline",
+        VerticalAlignOption.Sub => "sub",
+        VerticalAlignOption.Super => "super",
+        VerticalAlignOption.TextTop => "text-top",
+        VerticalAlignOption.TextBottom => "text-bottom",
+        VerticalAlignOption.Middle => "middle",
+        VerticalAlignOption.Top => "top",
+        VerticalAlignOption.Bottom => "bottom",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

@@ -16,26 +16,32 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Definitions.StyleOptions;
+namespace Jitendex.Yomitan.Options.StyleOptions;
 
-public enum TextDecorationStyleOption : byte
+public enum TextAlignOption : byte
 {
-    Solid,
-    Double,
-    Dotted,
-    Dashed,
-    Wavy,
+    Start,
+    End,
+    Left,
+    Right,
+    Center,
+    Justify,
+    JustifyAll,
+    MatchParent,
 }
 
-internal static class TextDecorationStyleOptionExtensions
+internal static class TextAlignOptionExtensions
 {
-    public static JsonNode ToJsonNode(this TextDecorationStyleOption option) => option switch
+    public static JsonNode ToJsonNode(this TextAlignOption option) => option switch
     {
-        TextDecorationStyleOption.Solid => "solid",
-        TextDecorationStyleOption.Double => "double",
-        TextDecorationStyleOption.Dotted => "dotted",
-        TextDecorationStyleOption.Dashed => "dashed",
-        TextDecorationStyleOption.Wavy => "wavy",
+        TextAlignOption.Start => "start",
+        TextAlignOption.End => "end",
+        TextAlignOption.Left => "left",
+        TextAlignOption.Right => "right",
+        TextAlignOption.Center => "center",
+        TextAlignOption.Justify => "justify",
+        TextAlignOption.JustifyAll => "justify-all",
+        TextAlignOption.MatchParent => "match-parent",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

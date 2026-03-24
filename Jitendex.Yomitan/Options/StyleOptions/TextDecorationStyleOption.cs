@@ -16,20 +16,26 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan;
+namespace Jitendex.Yomitan.Options.StyleOptions;
 
-public enum FrequencyModeOption : byte
+public enum TextDecorationStyleOption : byte
 {
-    OccurrenceBased,
-    RankBased,
+    Solid,
+    Double,
+    Dotted,
+    Dashed,
+    Wavy,
 }
 
-internal static class FrequencyModeOptionExtensions
+internal static class TextDecorationStyleOptionExtensions
 {
-    public static JsonNode ToJsonNode(this FrequencyModeOption option) => option switch
+    public static JsonNode ToJsonNode(this TextDecorationStyleOption option) => option switch
     {
-        FrequencyModeOption.OccurrenceBased => "occurrence-based",
-        FrequencyModeOption.RankBased => "rank-based",
+        TextDecorationStyleOption.Solid => "solid",
+        TextDecorationStyleOption.Double => "double",
+        TextDecorationStyleOption.Dotted => "dotted",
+        TextDecorationStyleOption.Dashed => "dashed",
+        TextDecorationStyleOption.Wavy => "wavy",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

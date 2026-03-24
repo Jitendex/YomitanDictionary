@@ -16,8 +16,8 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Jitendex.Yomitan.Definitions.StyleOptions;
-using static Jitendex.Yomitan.Definitions.StyleOptions.TextDecorationLineOption;
+using Jitendex.Yomitan.Options.StyleOptions;
+using static Jitendex.Yomitan.Options.StyleOptions.TextDecorationLineOption;
 
 namespace Jitendex.Yomitan.Definitions.ContentAttributes;
 

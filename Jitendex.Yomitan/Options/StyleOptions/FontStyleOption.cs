@@ -16,22 +16,20 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Definitions.ImageOptions;
+namespace Jitendex.Yomitan.Options.StyleOptions;
 
-public enum RenderingOption : byte
+public enum FontStyleOption : byte
 {
-    Auto,
-    Pixelated,
-    CrispEdges,
+    Normal,
+    Italic,
 }
 
-internal static class RenderingOptionExtensions
+internal static class FontStyleOptionExtensions
 {
-    public static JsonNode ToJsonNode(this RenderingOption option) => option switch
+    public static JsonNode ToJsonNode(this FontStyleOption option) => option switch
     {
-        RenderingOption.Auto => "auto",
-        RenderingOption.Pixelated => "pixelated",
-        RenderingOption.CrispEdges => "crisp-edges",
+        FontStyleOption.Normal => "normal",
+        FontStyleOption.Italic => "italic",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

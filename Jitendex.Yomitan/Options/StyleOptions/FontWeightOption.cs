@@ -16,20 +16,20 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Definitions.ImageOptions;
+namespace Jitendex.Yomitan.Options.StyleOptions;
 
-public enum AppearanceOption : byte
+public enum FontWeightOption : byte
 {
-    Auto,
-    Monochrome,
+    Normal,
+    Bold,
 }
 
-internal static class AppearanceOptionExtensions
+internal static class FontWeightOptionExtensions
 {
-    public static JsonNode ToJsonNode(this AppearanceOption option) => option switch
+    public static JsonNode ToJsonNode(this FontWeightOption option) => option switch
     {
-        AppearanceOption.Auto => "auto",
-        AppearanceOption.Monochrome => "monochrome",
+        FontWeightOption.Normal => "normal",
+        FontWeightOption.Bold => "bold",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

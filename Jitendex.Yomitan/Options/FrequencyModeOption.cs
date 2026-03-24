@@ -16,32 +16,20 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Definitions.StyleOptions;
+namespace Jitendex.Yomitan.Options;
 
-public enum VerticalAlignOption : byte
+public enum FrequencyModeOption : byte
 {
-    Baseline,
-    Sub,
-    Super,
-    TextTop,
-    TextBottom,
-    Middle,
-    Top,
-    Bottom,
+    OccurrenceBased,
+    RankBased,
 }
 
-internal static class VerticalAlignOptionExtensions
+internal static class FrequencyModeOptionExtensions
 {
-    public static JsonNode ToJsonNode(this VerticalAlignOption option) => option switch
+    public static JsonNode ToJsonNode(this FrequencyModeOption option) => option switch
     {
-        VerticalAlignOption.Baseline => "baseline",
-        VerticalAlignOption.Sub => "sub",
-        VerticalAlignOption.Super => "super",
-        VerticalAlignOption.TextTop => "text-top",
-        VerticalAlignOption.TextBottom => "text-bottom",
-        VerticalAlignOption.Middle => "middle",
-        VerticalAlignOption.Top => "top",
-        VerticalAlignOption.Bottom => "bottom",
+        FrequencyModeOption.OccurrenceBased => "occurrence-based",
+        FrequencyModeOption.RankBased => "rank-based",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }

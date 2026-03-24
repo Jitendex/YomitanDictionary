@@ -16,20 +16,22 @@ You should have received a copy of the GNU General Public License along with Yom
 If not, see <https://www.gnu.org/licenses/>.
 */
 
-namespace Jitendex.Yomitan.Definitions.StyleOptions;
+namespace Jitendex.Yomitan.Options.StyleOptions;
 
-public enum FontWeightOption : byte
+public enum WordBreakOption : byte
 {
     Normal,
-    Bold,
+    BreakAll,
+    KeepAll,
 }
 
-internal static class FontWeightOptionExtensions
+internal static class WordBreakOptionExtensions
 {
-    public static JsonNode ToJsonNode(this FontWeightOption option) => option switch
+    public static JsonNode ToJsonNode(this WordBreakOption option) => option switch
     {
-        FontWeightOption.Normal => "normal",
-        FontWeightOption.Bold => "bold",
+        WordBreakOption.Normal => "normal",
+        WordBreakOption.BreakAll => "break-all",
+        WordBreakOption.KeepAll => "keep-all",
         _ => throw new ArgumentOutOfRangeException(nameof(option))
     };
 }
