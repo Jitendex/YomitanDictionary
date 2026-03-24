@@ -24,7 +24,7 @@ namespace Jitendex.Yomitan.Models;
 /// <summary>
 /// Dictionary file metadata.
 /// </summary>
-public partial class Index
+public partial class DictionaryIndex
 {
     /// <summary>
     /// Title of the dictionary.
