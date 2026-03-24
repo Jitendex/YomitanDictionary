@@ -21,52 +21,52 @@ namespace Jitendex.Yomitan.Models.Options;
 public enum TagCategory
 {
     /// <summary>
-    /// #b6327a
+    /// #b6327a (magenta)
     /// </summary>
     Name,
 
     /// <summary>
-    /// #f0ad4e
+    /// #f0ad4e (orange)
     /// </summary>
     Expression,
 
     /// <summary>
-    /// #0275d8
+    /// #0275d8 (blue)
     /// </summary>
     Popular,
 
     /// <summary>
-    /// #5bc0de
+    /// #5bc0de (lighter blue)
     /// </summary>
     Frequent,
 
     /// <summary>
-    /// #d9534f
+    /// #d9534f (red)
     /// </summary>
     Archaism,
 
     /// <summary>
-    /// #aa66cc
+    /// #aa66cc (violet)
     /// </summary>
     Dictionary,
 
     /// <summary>
-    /// #5cb85c
+    /// #5cb85c (green)
     /// </summary>
     Frequency,
 
     /// <summary>
-    /// #565656
+    /// #565656 (dark gray)
     /// </summary>
     PartOfSpeech,
 
     /// <summary>
-    /// #8a8a91
+    /// #8a8a91 (gray)
     /// </summary>
     Search,
 
     /// <summary>
-    /// #6640be
+    /// #6640be (purple)
     /// </summary>
     PronunciationDictionary,
 }
